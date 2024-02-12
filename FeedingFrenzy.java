@@ -35,49 +35,6 @@ class FishWorld extends World {
     this.bgFish = bgFish;
   }
   
-  /*
-   * fields:
-   * this.player ... AFish
-   * this.bgFish ... ILoFish
-   * 
-   * methods:
-   * this.makeScene() ... WorldScene
-   * this.lastScene(String) ... WorldScene
-   * this.onTick() ... World
-   * this.onKeyEvent(String) ... World
-   * this.fishOverlapping() ... ILoFish
-   * this.whichGameOver(ILoFish) ... String
-   * this.checkEaten() ... World
-   * 
-   * methods of fields:
-   * this.player.draw(WorldScene) ... WorldScene
-   * this.player.drawShape() ... WorldImage
-   * this.player.overlapFish(AFish) ... boolean
-   * this.player.move() ... AFish
-   * this.player.onKey(String) ... AFish
-   * this.player.isSameFish(AFish) ... boolean
-   * this.player.updateSize(ILoFish) ... AFish
-   * this.player.biggerThan(AFish) ... boolean
-   * this.player.addSize(AFish) ... AFish
-   * this.player.tooBig() ... boolean
-   * 
-   * this.bgFish.draw(WorldScene) ... WorldScene
-   * this.bgFish.addLoFish(int) ... ILoFish
-   * this.bgFish.addLoFishForTesting(int) ... ILoFish
-   * this.bgFish.overlapFishInList(AFish) ... boolean
-   * this.bgFish.addFish() ... ILoFish
-   * this.bgFish.addFishForTesting() ... ILoFish
-   * this.bgFish.move() ... ILoFish
-   * this.bgFish.fishOverlapping() ... ILoFish
-   * this.bgFish.removeFish(ILoFish) ... ILoFish
-   * this.bgFish.contains(AFish) ... boolean
-   * this.bgFish.atePlayer(AFish) ... boolean
-   * this.bgFish.updateSize(AFish) ... AFish
-   * this.bgFish.safePlayer() ... AFish
-   * 
-   * 
-   */
-  
   //Draws the world state
   //(both the player and the background fish on the scene)
   public WorldScene makeScene() {
@@ -169,22 +126,6 @@ class FishWorld extends World {
 
   // returns which game is over
   public String whichGameOver(ILoFish overlap) {
-    /*
-     * methods
-     * overlap.draw(WorldScene) ... WorldScene
-     * overlap.addLoFish(int) ... ILoFish
-     * overlap.addLoFishForTesting(int) ... ILoFish
-     * overlap.overlapFishInList(AFish) ... boolean
-     * overlap.addFish() ... ILoFish
-     * overlap.addFishForTesting() ... ILoFish
-     * overlap.move() ... ILoFish
-     * overlap.fishOverlapping() ... ILoFish
-     * overlap.removeFish(ILoFish) ... ILoFish
-     * overlap.contains(AFish) ... boolean
-     * overlap.atePlayer(AFish) ... boolean
-     * overlap.updateSize(AFish) ... AFish
-     * overlap.safePlayer() ... AFish
-     */
     if (overlap.atePlayer(this.player)) {
       return "You lose!!";
     }
@@ -257,23 +198,6 @@ interface ILoFish {
 
 //Represents a list of empty fish
 class MtLoFish implements ILoFish {
-
-  /*
-   * methods
-   * this.draw(WorldScene) ... WorldScene
-   * this.addLoFish(int) ... ILoFish
-   * this.addLoFishForTesting(int) ... ILoFish
-   * this.overlapFishInList(AFish) ... boolean
-   * this.addFish() ... ILoFish
-   * this.addFishForTesting() ... ILoFish
-   * this.move() ... ILoFish
-   * this.fishOverlapping() ... ILoFish
-   * this.removeFish(ILoFish) ... ILoFish
-   * this.contains(AFish) ... boolean
-   * this.atePlayer(AFish) ... boolean
-   * this.updateSize(AFish) ... AFish
-   * this.safePlayer() ... AFish
-   */
   
   //draws the list of fish on the acc background
   public WorldScene draw(WorldScene acc) {
@@ -303,18 +227,6 @@ class MtLoFish implements ILoFish {
 
   //checks whether a fish overlaps any fish in this list
   public boolean overlapFishInList(AFish a) {
-    /* methods
-    * a.draw(WorldScene) ... WorldScene
-    * a.drawShape() ... WorldImage
-    * a.overlapFish(AFish) ... boolean
-    * a.move() ... AFish
-    * a.onKey(String) ... AFish
-    * a.isSameFish(AFish) ... boolean
-    * a.updateSize(ILoFish) ... AFish
-    * a.biggerThan(AFish) ... boolean
-    * a.addSize(AFish) ... AFish
-    * a.tooBig() ... boolean
-    */
     return false;
   }
 
@@ -341,22 +253,6 @@ class MtLoFish implements ILoFish {
 
   //Removes the fish that are in fishList from this list
   public ILoFish removeFish(ILoFish fishList) {
-    /*
-     * methods
-     * fishList.draw(WorldScene) ... WorldScene
-     * fishList.addLoFish(int) ... ILoFish
-     * fishList.addLoFishForTesting(int) ... ILoFish
-     * fishList.overlapFishInList(AFish) ... boolean
-     * fishList.addFish() ... ILoFish
-     * fishList.addFishForTesting() ... ILoFish
-     * fishList.move() ... ILoFish
-     * fishList.fishOverlapping() ... ILoFish
-     * fishList.removeFish(ILoFish) ... ILoFish
-     * fishList.contains(AFish) ... boolean
-     * fishList.atePlayer(AFish) ... boolean
-     * fishList.updateSize(AFish) ... AFish
-     * fishList.safePlayer() ... AFish
-     */
     return this;
   }
 
@@ -391,65 +287,9 @@ class ConsLoFish implements ILoFish {
     this.first = first;
     this.rest = rest;
   }
-  
-  /*
-   * fields
-   * this.first ... AFish
-   * this.rest ... ILoFish
-   * 
-   * methods
-   * this.draw(WorldScene) ... WorldScene
-   * this.addLoFish(int) ... ILoFish
-   * this.addLoFishForTesting(int) ... ILoFish
-   * this.overlapFishInList(AFish) ... boolean
-   * this.addFish() ... ILoFish
-   * this.addFishForTesting() ... ILoFish
-   * this.move() ... ILoFish
-   * this.fishOverlapping() ... ILoFish
-   * this.removeFish(ILoFish) ... ILoFish
-   * this.contains(AFish) ... boolean
-   * this.atePlayer(AFish) ... boolean
-   * this.updateSize(AFish) ... AFish
-   * this.safePlayer() ... AFish
-   * 
-   * methods of fields
-   * this.first.draw(WorldScene) ... WorldScene
-   * this.first.drawShape() ... WorldImage
-   * this.first.overlapFish(AFish) ... boolean
-   * this.first.move() ... AFish
-   * this.first.onKey(String) ... AFish
-   * this.first.isSameFish(AFish) ... boolean
-   * this.updateSize(ILoFish) ... AFish
-   * this.first.biggerThan(AFish) ... boolean
-   * this.first.addSize(AFish) ... AFish
-   * this.first.tooBig() ... boolean
-   * 
-   * this.rest.draw(WorldScene) ... WorldScene
-   * this.rest.addLoFish(int) ... ILoFish
-   * this.rest.addLoFishForTesting(int) ... ILoFish
-   * this.rest.overlapFishInList(AFish) ... boolean
-   * this.rest.addFish() ... ILoFish
-   * this.rest.addFishForTesting() ... ILoFish
-   * this.rest.move() ... ILoFish
-   * this.rest.fishOverlapping() ... ILoFish
-   * this.rest.removeFish(ILoFish) ... ILoFish
-   * this.rest.contains(AFish) ... boolean
-   * this.rest.atePlayer(AFish) ... boolean
-   * this.rest.updateSize(AFish) ... AFish
-   * this.rest.safePlayer() ... AFish
-   */
 
   //draws the fish on the acc background
   public WorldScene draw(WorldScene acc) {
-    /*
-    * this.makeScene() ... WorldScene
-    * this.lastScene(String) ... WorldScene
-    * this.onTick() ... World
-    * this.onKeyEvent(String) ... World
-    * this.fishOverlapping() ... ILoFish
-    * this.whichGameOver(ILoFish) ... String
-    * this.checkEaten() ... World
-    */
     return this.rest.draw(this.first.draw(acc));
   }
 
@@ -470,18 +310,6 @@ class ConsLoFish implements ILoFish {
 
   //checks whether a fish overlaps any fish in this list
   public boolean overlapFishInList(AFish a) {
-    /* methods
-    * a.draw(WorldScene) ... WorldScene
-    * a.drawShape() ... WorldImage
-    * a.overlapFish(AFish) ... boolean
-    * a.move() ... AFish
-    * a.onKey(String) ... AFish
-    * a.isSameFish(AFish) ... boolean
-    * a.updateSize(ILoFish) ... AFish
-    * a.biggerThan(AFish) ... boolean
-    * a.addSize(AFish) ... AFish
-    * a.tooBig() ... boolean
-    */
     return this.first.overlapFish(a) || this.rest.overlapFishInList(a);
   }
 
@@ -515,19 +343,6 @@ class ConsLoFish implements ILoFish {
 
   //Returns the fish that overlap with the player fish
   public ILoFish fishOverlapping(AFish player) {
-    
-    /* methods
-    * player.draw(WorldScene) ... WorldScene
-    * player.drawShape() ... WorldImage
-    * player.overlapFish(AFish) ... boolean
-    * player.move() ... AFish
-    * player.onKey(String) ... AFish
-    * player.isSameFish(AFish) ... boolean
-    * player.updateSize(ILoFish) ... AFish
-    * player.biggerThan(AFish) ... boolean
-    * player.addSize(AFish) ... AFish
-    * player.tooBig() ... boolean
-    */
     if (this.first.overlapFish(player)) {
       return new ConsLoFish(this.first, this.rest.fishOverlapping(player));
     }
@@ -538,22 +353,6 @@ class ConsLoFish implements ILoFish {
 
   //Removes the fish that are in fishList from this list
   public ILoFish removeFish(ILoFish fishList) {
-    /*
-     * methods
-     * fishList.draw(WorldScene) ... WorldScene
-     * fishList.addLoFish(int) ... ILoFish
-     * fishList.addLoFishForTesting(int) ... ILoFish
-     * fishList.overlapFishInList(AFish) ... boolean
-     * fishList.addFish() ... ILoFish
-     * fishList.addFishForTesting() ... ILoFish
-     * fishList.move() ... ILoFish
-     * fishList.fishOverlapping() ... ILoFish
-     * fishList.removeFish(ILoFish) ... ILoFish
-     * fishList.contains(AFish) ... boolean
-     * fishList.atePlayer(AFish) ... boolean
-     * fishList.updateSize(AFish) ... AFish
-     * fishList.safePlayer() ... AFish
-     */
     if (fishList.contains(this.first)) {
       return this.rest.removeFish(fishList);
     }
@@ -564,35 +363,11 @@ class ConsLoFish implements ILoFish {
 
   //returns whether the fish first is in this list
   public boolean contains(AFish fish) {
-    /* methods
-     * fish.draw(WorldScene) ... WorldScene
-     * fish.drawShape() ... WorldImage
-     * fish.overlapFish(AFish) ... boolean
-     * fish.move() ... AFish
-     * fish.onKey(String) ... AFish
-     * fish.isSameFish(AFish) ... boolean
-     * fish.updateSize(ILoFish) ... AFish
-     * fish.biggerThan(AFish) ... boolean
-     * fish.addSize(AFish) ... AFish
-     * fish.tooBig() ... boolean
-     */
     return this.first.isSameFish(fish) || this.rest.contains(fish);
   }
 
   //returns whether the player fish has been eaten
   public boolean atePlayer(AFish player) {
-    /* methods
-     * player.draw(WorldScene) ... WorldScene
-     * player.drawShape() ... WorldImage
-     * player.overlapFish(AFish) ... boolean
-     * player.move() ... AFish
-     * player.onKey(String) ... AFish
-     * player.isSameFish(AFish) ... boolean
-     * player.updateSize(ILoFish) ... AFish
-     * player.biggerThan(AFish) ... boolean
-     * player.addSize(AFish) ... AFish
-     * player.tooBig() ... boolean
-     */
     return this.first.biggerThan(player) || this.rest.atePlayer(player);
   }
 
@@ -684,49 +459,8 @@ abstract class AFish {
     }
   }
   
-  /*
-   * fields
-   * this.size ... double
-   * this.location .. CartPt
-   * this.color ... Color
-   * this.rand ... Random
-   * this.bound ... Boundary
-   * this.speed ... int
-   * 
-   * methods
-   * this.draw(WorldScene) ... WorldScene
-   * this.drawShape() ... WorldImage
-   * this.overlapFish(AFish) ... boolean
-   * this.move() ... AFish
-   * this.onKey(String) ... AFish
-   * this.isSameFish(AFish) ... boolean
-   * this.updateSize(ILoFish) ... AFish
-   * this.biggerThan(AFish) ... boolean
-   * this.addSize(AFish) ... AFish
-   * this.tooBig() ... boolean
-   * 
-   * methods of fields
-   * this.bound.overlappingBoundary(Boundary) ... boolean
-   * this.bound.isSameBoundary(Boundary) ... boolean
-   * this.location.drawShapeOnScene(WorldScene, WorldImage) ... WorldScene
-   * this.location.getX() ... int
-   * this.location.getY() ... int
-   * this.location.move(int) ... CartPt
-   * this.location.onKey(String, int) ... CartPt
-   * this.location.isSameCartPt(CartPt) ... boolean
-   */
-  
   //draw this Fish onto the world scene
   public WorldScene draw(WorldScene acc) {
-    /*
-    * this.makeScene() ... WorldScene
-    * this.lastScene(String) ... WorldScene
-    * this.onTick() ... World
-    * this.onKeyEvent(String) ... World
-    * this.fishOverlapping() ... ILoFish
-    * this.whichGameOver(ILoFish) ... String
-    * this.checkEaten() ... World
-    */
     return this.location.drawShapeOnScene(acc, this.drawShape());
   }
 
@@ -766,22 +500,6 @@ abstract class AFish {
 
   //updates the size of the BGFish 
   public AFish updateSize(ILoFish fishOverlapping) {
-    /*
-     * methods
-     * fishOverlapping.draw(WorldScene) ... WorldScene
-     * fishOverlapping.addLoFish(int) ... ILoFish
-     * fishOverlapping.addLoFishForTesting(int) ... ILoFish
-     * fishOverlapping.overlapFishInList(AFish) ... boolean
-     * fishOverlapping.addFish() ... ILoFish
-     * fishOverlapping.addFishForTesting() ... ILoFish
-     * fishOverlapping.move() ... ILoFish
-     * fishOverlapping.fishOverlapping() ... ILoFish
-     * fishOverlapping.removeFish(ILoFish) ... ILoFish
-     * fishOverlapping.contains(AFish) ... boolean
-     * fishOverlapping.atePlayer(AFish) ... boolean
-     * fishOverlapping.updateSize(AFish) ... AFish
-     * fishOverlapping.safePlayer() ... AFish
-     */
     return fishOverlapping.updateSize(this);
   }
   
@@ -827,37 +545,6 @@ class PlayerFish extends AFish {
     super(size, location, Color.ORANGE, r);
   }
   
-  /*
-   * fields
-   * this.size ... double
-   * this.location .. CartPt
-   * this.color ... Color
-   * this.rand ... Random
-   * this.bound ... Boundary
-   * 
-   * methods
-   * this.draw(WorldScene) ... WorldScene
-   * this.drawShape() ... WorldImage
-   * this.overlapFish(AFish) ... boolean
-   * this.move() ... AFish
-   * this.onKey(String) ... AFish
-   * this.isSameFish(AFish) ... boolean
-   * this.updateSize(ILoFish) ... AFish
-   * this.biggerThan(AFish) ... boolean
-   * this.addSize(AFish) ... AFish
-   * this.tooBig() ... boolean
-   * 
-   * methods of fields
-   * this.bound.overlappingBoundary(Boundary) ... boolean
-   * this.bound.isSameBoundary(Boundary) ... boolean
-   * this.location.drawShapeOnScene(WorldScene, WorldImage) ... WorldScene
-   * this.location.getX() ... int
-   * this.location.getY() ... int
-   * this.location.move(int) ... CartPt
-   * this.location.onKey(String, int) ... CartPt
-   * this.location.isSameCartPt(CartPt) ... boolean
-   */
-  
   //moves a bgfish by its speed
   public AFish move() {
     return new PlayerFish(this.size, this.location.move(speed));
@@ -902,38 +589,6 @@ class BGFish extends AFish {
     this.speed = speed;
   }
   
-  /*
-   * fields
-   * this.size ... double
-   * this.location .. CartPt
-   * this.color ... Color
-   * this.rand ... Random
-   * this.bound ... Boundary
-   * this.speed ... int
-   * 
-   * methods
-   * this.draw(WorldScene) ... WorldScene
-   * this.drawShape() ... WorldImage
-   * this.overlapFish(AFish) ... boolean
-   * this.move() ... AFish
-   * this.onKey(String) ... AFish
-   * this.isSameFish(AFish) ... boolean
-   * this.updateSize(ILoFish) ... AFish
-   * this.biggerThan(AFish) ... boolean
-   * this.addSize(AFish) ... AFish
-   * this.tooBig() ... boolean
-   * 
-   * methods of fields
-   * this.bound.overlappingBoundary(Boundary) ... boolean
-   * this.bound.isSameBoundary(Boundary) ... boolean
-   * this.location.drawShapeOnScene(WorldScene, WorldImage) ... WorldScene
-   * this.location.getX() ... int
-   * this.location.getY() ... int
-   * this.location.move(int) ... CartPt
-   * this.location.onKey(String, int) ... CartPt
-   * this.location.isSameCartPt(CartPt) ... boolean
-   */
-  
   //moves the BGFish by its speed
   public AFish move() {
     return new BGFish(this.size, this.location.move(speed), this.rand, this.speed);
@@ -970,31 +625,8 @@ class CartPt {
     this.y = r.nextInt(800);
   }
   
-  /*
-   * fields
-   * this.x ... int
-   * this.y ... int
-   * 
-   * methods
-   * this.drawShapeOnScene(WorldScene, WorldImage) ... WorldScene
-   * this.getX() ... int
-   * this.getY() ... int
-   * this.move(int) ... CartPt
-   * this.onKey(String, int) ... CartPt
-   * this.isSameCartPt(CartPt) ... boolean
-   */
-  
   //Draws a shape on the scene at this x and y location
   WorldScene drawShapeOnScene(WorldScene acc, WorldImage shape) {
-    /*
-    * this.makeScene() ... WorldScene
-    * this.lastScene(String) ... WorldScene
-    * this.onTick() ... World
-    * this.onKeyEvent(String) ... World
-    * this.fishOverlapping() ... ILoFish
-    * this.whichGameOver(ILoFish) ... String
-    * this.checkEaten() ... World
-    */
     return acc.placeImageXY(shape, this.x, this.y);
   }
   
@@ -1086,18 +718,6 @@ class Boundary {
     this.minY = loc.getY() - height / 2;
     this.maxY = loc.getY() + height / 2;
   }
-  
-  /*
-   * fields
-   * this.minX ... double
-   * this.maxX ... double
-   * this.minY ... double
-   * this.maxY ... double
-   * 
-   * method
-   * this.overlappingBoundary(Boundary) ... boolean
-   * this.isSameBoundary(Boundary) ... boolean
-   */
   
   boolean overlappingBoundary(Boundary b) {
     Utils u = new Utils();
